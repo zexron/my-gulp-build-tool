@@ -1,0 +1,51 @@
+{
+  "name": "build-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "gulp tool",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "node ProjTest.js",
+    "start": "curl -o ./download.zip http://www.status404.cn/BuildTool/build.zip && unzip -uo ./download.zip -d ./ && rm ./download.zip && npm install",
+    "start2": "curl -o ./download.zip http://www.status404.cn/BuildTool/build2.zip && unzip -uo ./download.zip -d ./ && rm ./download.zip && mv gulpfile2.js gulpfile.js && npm install",
+    "init": "node initProject.js",
+    "gulp": "gulp default"
+  },
+  "keywords": [
+    "gulp",
+    "frontend",
+    "automate"
+  ],
+  "author": "Nick",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "babel-preset-env": "^1.6.1",
+    "debug": "^2.6.9",
+    "del": "^2.2.2",
+    "eslint": "^4.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^3.2.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-file-include": "^1.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-less": "^3.3.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "ssh2-sftp-client": "^2.0.1",
+    "supports-color": "^4.5.0"
+  }
+}
