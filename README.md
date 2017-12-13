@@ -1,7 +1,7 @@
 # my-gulp-build-tool
 gulp based build tool for frontend
 
-##Easy Install
+## Easy Install
 1. Download and put `package.json` under your **Workspace** (Eclipse) / **Project** (IDEA) **ROOT**
 2. run
 ```bash
@@ -12,7 +12,7 @@ $ npm run start     # for gulpfile.js
 $ npm run start2    # for gulpfile2.js
 ```
 
-##Init Project
+## Init Project
 ```bash
 $ npm run init
 
@@ -23,7 +23,7 @@ Input Project Destination(Enter 'exit' for quit): ${dest folder path}
 Path ../target is Out of Project, continue?[y|n]
 ```
 
-##Start Gulp
+## Start Gulp
 - For IDE with gulp manager, setup in your IDE. Or run: 
 ```bash
 $ npm run gulp
@@ -31,7 +31,7 @@ $ npm run gulp
 - And enjoy your coding
 - For `gulpfile2.js` users, also enjoy your sites on `http://localhost:8080/path/to/your/html`
 
-##About `gulpfile.js`
+## About `gulpfile.js`
 This tool will:
 - Compile `.less` files
 - Downgrade ES6 to ES5
@@ -51,12 +51,12 @@ This tool will:
 # Comment is not supported, delete comments and extra blanks when use
 ```
 
-##About babel
+## About babel
 `transform-remove-strict-mode` plugin is used to remove global "use strict", remove the plugin if needed
 
-##About eslint
+## About eslint
 `eslint` and related packages have already added in `package.json` and by default `.eslintrc.js` is setup to [Standard Style](https://github.com/standard/standard)   
 Setup your editor to enable eslint to lint your javascript files: [ATOM](https://atom.io/packages/eslint), [IntelliJ Productions](https://www.jetbrains.com/search/?q=eslint), [Eclipse](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint), [Sublime](https://packagecontrol.io/packages/ESLint)
 
-#LICENSE
+# LICENSE
 [MIT](https://github.com/zexron/my-gulp-build-tool/blob/master/LICENSE)
