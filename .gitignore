@@ -1,5 +1,9 @@
+.DS_Store
+
+dev/
+
 # IDEA
-.idea
+.idea/
 *.iml
 
 # Logs
