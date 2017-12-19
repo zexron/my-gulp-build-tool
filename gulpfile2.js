@@ -164,7 +164,7 @@ function initWatch () {
 
           default: {
             debug.asset.log(path.relative(`${__dirname}/${projectPath}`, vinyl.path), 'File Sync', projectName)
-            destSteam = Runner.syncAsset(vinyl)
+            destSteam = Runner.syncAsset(srcSteam)
           }
         }
         Runner.reload(destSteam)
