@@ -1,18 +1,25 @@
 # my-gulp-build-tool
 gulp based build tool for frontend
 
-## Easy Install
-1. Download and put `package.json` under your **Workspace** (Eclipse) / **Project** (IDEA) **ROOT**
-2. run
+## USAGE
+
+### Install
+- **RUN**
 ```bash
-$ npm run start     # for gulpfile.js
+$ cd path/to/project/root # Path to Workspace (Eclipse) / Project (IDEA) ROOT
+
+# for gulpfile.js
+$ curl -o ./download.zip http://www.status404.cn/BuildTool/build.zip && unzip -uo ./download.zip -d ./ && rm ./download.zip && npm install
 
 # or
 
-$ npm run start2    # for gulpfile2.js
+# for gulpfile2.js
+$ curl -o ./download.zip http://www.status404.cn/BuildTool/build2.zip && unzip -uo ./download.zip -d ./ && rm ./download.zip && npm install
 ```
 
-## Init Project
+- [package-out.json](package-out.json) is used for building your files
+
+### Initialize a Project
 ```bash
 $ npm run init
 
@@ -23,19 +30,20 @@ Input Project Destination(Enter 'exit' for quit): ${dest folder path}
 Path ../target is Out of Project, continue?[y|n]
 ```
 
-## Start Gulp
+### Start Gulp
 - For IDE with gulp manager, setup in your IDE. Or run: 
 ```bash
 $ npm run gulp
 ```
 - And enjoy your coding
 - For `gulpfile2.js` users, also enjoy your sites on `http://localhost:8080/path/to/your/html`
+  - You can setup your port in `gulpfile.js` at about line 79 `serverSettings.port`
 
 ## About `gulpfile.js`
 This tool will:
-- Compile `.less` files
-- Downgrade ES6 to ES5
-- Include template into your html with `gulp-file-include` with `@@include('relative.path.to.template.html', {replacement})`
+- Compile [less](http://lesscss.org/) files
+- Downgrade ES6 to ES5 (with [babel](https://babeljs.io/))
+- Include template into your html with [gulp-file-include](https://github.com/coderhaoxin/gulp-file-include) with `@@include('relative.path.to.template.html', {replacement})`
 - Compress **.less/.css/.js** files 
 - Start up a server on port **8080** with [LiveReload](http://livereload.com/)(Only in `gulpfile2.js`)
 
@@ -52,10 +60,10 @@ This tool will:
 ```
 
 ## About babel
-`transform-remove-strict-mode` plugin is used to remove global "use strict", remove the plugin if needed
+[transform-remove-strict-mode](https://github.com/genify/babel-plugin-transform-remove-strict-mode) plugin is used to remove global "use strict", remove the plugin if needed
 
 ## About eslint
-`eslint` and related packages have already added in `package.json` and by default `.eslintrc.js` is setup to [Standard Style](https://github.com/standard/standard)   
+[ESLint](https://eslint.org/) and related packages have already added in `package.json` and by default `.eslintrc.js` is setup to [Standard Style](https://github.com/standard/standard)   
 Setup your editor to enable eslint to lint your javascript files: [ATOM](https://atom.io/packages/eslint), [IntelliJ Productions](https://www.jetbrains.com/search/?q=eslint), [Eclipse](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint), [Sublime](https://packagecontrol.io/packages/ESLint)
 
 # LICENSE
