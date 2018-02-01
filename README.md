@@ -31,7 +31,7 @@ Path ../target is Out of Project, continue?[y|n]
 ```
 
 ### Start Gulp
-- For IDE with gulp manager, setup in your IDE. Or run: 
+- For IDE with gulp manager, setup in your IDE. Or run:
 ```bash
 $ npm run gulp
 ```
@@ -42,14 +42,15 @@ $ npm run gulp
 ## About `gulpfile.js`
 This tool will:
 - Compile [less](http://lesscss.org/) files
+- Compile [ts](http://www.typescriptlang.org/) files
 - Downgrade ES6 to ES5 (with [babel](https://babeljs.io/))
 - Include template into your html with [gulp-file-include](https://github.com/coderhaoxin/gulp-file-include) with `@@include('relative.path.to.template.html', {replacement})`
-- Compress **.less/.css/.js** files 
+- Compress **.less/.css/.js** files
 - Start up a server on port **8080** with [LiveReload](http://livereload.com/)(Only in `gulpfile2.js`)
 
-**Note:** 
+**Note:**
 - If downgrade or compress `.js` file is *not* needed, rename it to `*.min.js`, tool will only copy `*.min.js` file
-- Like `.eslintignore`, you can setup ignore paths/files in `.gulpignore` **e.g.** 
+- Like `.eslintignore`, you can setup ignore paths/files in `.gulpignore` **e.g.**
 ```bash
 ## .gulpignore
 
@@ -63,7 +64,7 @@ This tool will:
 [transform-remove-strict-mode](https://github.com/genify/babel-plugin-transform-remove-strict-mode) plugin is used to remove global "use strict", remove the plugin if needed
 
 ## About eslint
-[ESLint](https://eslint.org/) and related packages have already added in `package.json` and by default `.eslintrc.js` is setup to [Standard Style](https://github.com/standard/standard)   
+[ESLint](https://eslint.org/) and related packages have already added in `package.json` and by default `.eslintrc.js` is setup to [Standard Style](https://github.com/standard/standard)
 Setup your editor to enable eslint to lint your javascript files: [ATOM](https://atom.io/packages/eslint), [IntelliJ Productions](https://www.jetbrains.com/search/?q=eslint), [Eclipse](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint), [Sublime](https://packagecontrol.io/packages/ESLint)
 
 # LICENSE

@@ -39,12 +39,14 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.9.1",
+    "gulp-typescript": "^3.2.4",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.11",
     "jszip": "^3.1.5",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "ssh2-sftp-client": "^2.0.1",
-    "supports-color": "^4.5.0"
+    "supports-color": "^4.5.0",
+    "typescript": "^2.7.1"
   }
 }

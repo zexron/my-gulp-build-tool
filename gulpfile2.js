@@ -14,7 +14,7 @@ class OutputLog {
 
   log (string, info, project = 'unknown') {
     console.log(`[${CONSOLE_COLOR.UNDERLINE + dateFormat(new Date(), 'hh:mm:ss') + CONSOLE_COLOR.RESET}] ${this.color + this.namespace +
-    CONSOLE_COLOR.RESET}-${CONSOLE_COLOR.BLUE_GREEN + info + CONSOLE_COLOR.RESET}`, `  ${this.color + project + CONSOLE_COLOR.RESET}`, string)
+      CONSOLE_COLOR.RESET}-${CONSOLE_COLOR.BLUE_GREEN + info + CONSOLE_COLOR.RESET}`, `  ${this.color + project + CONSOLE_COLOR.RESET}`, string)
   }
 
   error (string, project = 'unknown') {
@@ -40,7 +40,7 @@ function dateFormat (e, t) {
   yearTest.test(t) && (t = t.replace(RegExp.$1, (e.getFullYear() + '').substr(4 - RegExp.$1.length)))
   for (let r in g) {
     new RegExp('(' + r + ')').test(t) &&
-    (t = t.replace(RegExp.$1, RegExp.$1.length === 1 ? g[r] : ('00' + g[r]).substr(('' + g[r]).length)))
+      (t = t.replace(RegExp.$1, RegExp.$1.length === 1 ? g[r] : ('00' + g[r]).substr(('' + g[r]).length)))
   }
   return t
 }
@@ -58,6 +58,8 @@ const prefix = new AutoPrefix({browsers: ['> 1%', 'last 4 versions']})
 // Script plugins
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
+const ts = require('gulp-typescript')
+const tsConfig = ts.createProject('tsconfig.json')
 // Common plugins
 const sourcemaps = require('gulp-sourcemaps')
 const plumber = require('gulp-plumber')
@@ -162,6 +164,12 @@ function initWatch () {
             break
           }
 
+          case '.ts': {
+            debug.javascript.log(path.relative(`${__dirname}/${projectPath}`, vinyl.path), 'Compile TS', projectName)
+            destSteam = Runner.compileTs(srcSteam)
+            break
+          }
+
           default: {
             debug.asset.log(path.relative(`${__dirname}/${projectPath}`, vinyl.path), 'File Sync', projectName)
             destSteam = Runner.syncAsset(srcSteam)
@@ -241,6 +249,16 @@ const Runner = {
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(resolvePath))
   },
+  compileTs (steam) {
+    return steam
+      .pipe(plumber())
+      .pipe(sourcemaps.init())
+      .pipe(tsConfig())
+      .js.pipe(babel())
+      .pipe(uglify())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest(resolvePath))
+  },
   syncJs (steam) {
     return steam
       .pipe(plumber())
@@ -281,8 +299,12 @@ gulp.task('compressJs', () => {
   Runner.compressJs(gulp.src(['**/src/**/*.js', '!**/src/**/*.min.js', ...ignoreFiles]))
 })
 
+gulp.task('compileTs', () => {
+  Runner.compileTs(gulp.src(['**/src/**/*.ts', '**/src/**/*.tsx', ...ignoreFiles]))
+})
+
 gulp.task('syncAsset', () => {
-  Runner.syncAsset(gulp.src(['**/src/**/*', '!**/src/**/*.@(js|less|css|html)', ...ignoreFiles]))
+  Runner.syncAsset(gulp.src(['**/src/**/*', '!**/src/**/*.@(js|jsx|less|css|html|ts|tsx)', ...ignoreFiles]))
 })
 
 gulp.task('watch', () => {

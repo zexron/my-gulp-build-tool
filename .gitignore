@@ -7,6 +7,9 @@ build/
 .idea/
 *.iml
 
+# VSCode
+.vscode/
+
 # Logs
 logs
 *.log
